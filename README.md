@@ -1,6 +1,6 @@
 ## Installation (using xampp)
 ***Requirement*** Latest version of Composer. See https://getcomposer.org/download/ for instructions.
-- **Download the repository.**
+- **Download the repository. **
 - **Create "praxxys_db" database in MySQL. **
 - **In VSCode terminal, migrate database by typing "php artisan migrate". **
 - **Seed users table and products table by typing "php artisan db:seed". **
