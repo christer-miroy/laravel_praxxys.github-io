@@ -1,12 +1,15 @@
 ## Installation (using xampp)
-***Requirement*** Latest version of Composer. See https://getcomposer.org/download/ for instructions.
-- **Download the repository. **
+- **Create new folder inside the <htdocs> folder. **
+- **Open the new folder. In the address bar, type "cmd" and press enter. **
+- **Download the latest version of Composer. See https://getcomposer.org/download/ for the installation procedure. **
+- **Download the files in the repository. Extract the compressed folder. Copy (or cut) the extracted files and paste it in htdocs > (your new folder).**
 - **Create "praxxys_db" database in MySQL. **
-- **In VSCode terminal, migrate database by typing "php artisan migrate". **
-- **Seed users table and products table by typing "php artisan db:seed". **
-- **In command or vs code terminal, type "php artisan serve" to run the application. **
+- **Open the project in VSCode.**
 - **Create image folder inside public folder (should be: public > image) **
 - **Create multi folder inside image folder folder (should be: public > image > multi) **
+- **Open the terminal, migrate database by typing "php artisan migrate". **
+- **Seed users table and products table by typing "php artisan db:seed". **
+- **In command or vs code terminal, type "php artisan serve" to run the application. **
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
