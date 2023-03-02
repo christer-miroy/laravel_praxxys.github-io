@@ -101,7 +101,7 @@ class ProductController extends Controller
         ]);
 
         /* start update products */
-        $update = Products::find($id) -> update([
+        $product = Products::find($id) -> update([
             'name' => $request -> name,
             'category' => $request -> category,
             'description' => $request -> description,
@@ -110,11 +110,13 @@ class ProductController extends Controller
         /* end update products */
 
         /* get all photos associated to the product_id */
-        $old_images = Images::find(1) -> product_id;
-        foreach($old_images as $old_image){
-            unlink($old_image);//unlink from database
+        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%');
+        //dd($old_images);
+        /* unlink old images */
+        foreach ($old_images as $old_image) {
+            unlink($old_image);
         }
-        dd($old_image);
+
         /* start insert new images */
         //format the uploaded image
         $image = $request -> file('image');
@@ -125,9 +127,9 @@ class ProductController extends Controller
             Image::make($multi_img) -> resize(300,300) -> save('image/multi/' . $name_gen); //resize then save image to folder
 
             $last_img = 'image/multi'.$name_gen;
-            Images::update([
+            Images::create([
                 'image' => $last_img,
-                'product_id' => $update ->id,
+                'product_id' => $product ->id,
                 'created_at' => Carbon::now()
             ]);
         }
@@ -139,8 +141,8 @@ class ProductController extends Controller
 
     /* start delete product */
     public function Delete($id) {
-        //Images::find() -> delete();
-        Products::find($id) -> delete();
+        /* get all photos associated to the product_id */
+        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%') -> delete();
 
         return Redirect() -> back() -> with('success', 'Product deleted successfully.');
     }
