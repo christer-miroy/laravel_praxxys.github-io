@@ -68,7 +68,7 @@ class ProductController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $multi_img -> getClientOriginalExtension(); //generated name
             Image::make($multi_img) -> resize(300,300) -> save('image/multi/' . $name_gen); //resize then save image to folder
 
-            $last_img = 'image/multi'.$name_gen;
+            $last_img = 'image/multi/'.$name_gen;
             Images::create([
                 'image' => $last_img,
                 'product_id' => $products ->id,
@@ -142,7 +142,16 @@ class ProductController extends Controller
     /* start delete product */
     public function Delete($id) {
         /* get all photos associated to the product_id */
-        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%') -> delete();
+        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%');
+        if ($old_images){
+            /* delete user-generated products */
+            foreach ($old_images as $old_image) {
+                $image_path = $old_image -> image;
+                unlink($image_path);
+            }
+            $old_images -> delete();
+        }
+        Products::find($id) -> delete();
 
         return Redirect() -> back() -> with('success', 'Product deleted successfully.');
     }
