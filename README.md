@@ -1,15 +1,21 @@
-## Installation (using xampp)
+## Installation
+***Note: This is created using xampp.***
 - **Create new folder inside the <htdocs> folder. **
 - **Open the new folder. In the address bar, type "cmd" and press enter. **
 - **Download the latest version of Composer. See https://getcomposer.org/download/ for the installation procedure. **
-- **Download the files in the repository. Extract the compressed folder. Copy (or cut) the extracted files and paste it in htdocs > (your new folder).**
+- **Install the latest version of Laravel by typing composer create-project laravel/laravel praxxys_exam. **
+- **Download the files in this repository and extract the files while in Downloads folder. **
+- **Once extracted, copy the files inside praxxys_exam folder and paste it inside the newly created praxxys_exam in your htdocs folder.**
 - **Create "praxxys_db" database in MySQL. **
 - **Open the project in VSCode. **
-- **Create image folder inside public folder (should be: public > image) **
-- **Create multi folder inside image folder folder (should be: public > image > multi) **
-- **Open the terminal, migrate database by typing "php artisan migrate". **
-- **Seed users table and products table by typing "php artisan db:seed". **
+- **In .env file, go to DB_DATABASE and change the default setting to praxxys_db to connect to MySQL. **
+- **Create image folder inside public folder (should be: public > image). Note: you may disregard this step if image folder is already existing after you extracted the folder **
+- **Create multi folder inside image folder folder (should be: public > image > multi). Note: you may disregard this step if multi folder is already existing after you extracted the folder **
+- **Open the terminal, migrate database by typing "php artisan migrate". This will create the tables in the database. **
+- **Generate fake values in users table and products table by typing "php artisan db:seed". If you check the users table in MySQL, take note that the passwords indicated are hashed. User must register first and use your generated email address and password to access the admin dashboard.**
 - **In command or vs code terminal, type "php artisan serve" to run the application. **
+- **Press ctrl+click the indicated http server address. **
+- **For first-time users, select Register and fill-up the necessary fields. For returning users, select Log-in and enter your credentials. **
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
