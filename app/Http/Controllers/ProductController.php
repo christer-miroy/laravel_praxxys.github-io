@@ -147,7 +147,7 @@ class ProductController extends Controller
     /* start delete product */
     public function Delete($id) {
         /* get all photos associated to the product_id */
-        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%');
+        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%') -> delete(); //delete from database
         if ($old_images){
             /* delete user-generated products */
             foreach ($old_images as $old_image) {
