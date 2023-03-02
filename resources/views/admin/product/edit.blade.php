@@ -46,13 +46,6 @@
                             <div class="mb-3">
                                 <label class="form-label">Select Multiple Images</label>
                                 <input type="file" class="form-control" name="image[]" aria-describedby="emailHelp" multiple>
-                                @php
-                                    $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%');
-                                @endphp
-                                @foreach ($old_images as $old_image)
-                                <img src="{{ $old_image -> image }}" alt="{{ $old_image -> image }}">
-                                    <input type="hidden" name="old_image" value="{{ $old_image -> image }}">
-                                @endforeach
                                 <!-- start validation message -->
                                 @error('datetime')
                                 <span class="text-danger">{{ $message }}</span>

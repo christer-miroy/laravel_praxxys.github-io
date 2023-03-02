@@ -10,6 +10,8 @@ use Auth;
 use Image; //image intervention
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB; //query builder
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -68,7 +70,7 @@ class ProductController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $multi_img -> getClientOriginalExtension(); //generated name
             Image::make($multi_img) -> resize(300,300) -> save('image/multi/' . $name_gen); //resize then save image to folder
 
-            $last_img = 'image/multi/'.$name_gen;
+            $last_img = 'image/multi'.$name_gen;
             Images::create([
                 'image' => $last_img,
                 'product_id' => $products ->id,
@@ -118,7 +120,10 @@ class ProductController extends Controller
         }
 
         /* start insert new images */
-        //format the uploaded image
+        /* get all old photos associated to the product_id and delete in database*/
+        $old_images = Images::where('product_id', 'LIKE', '%'.$id.'%') -> delete();
+        
+        //format the updated image
         $image = $request -> file('image');
 
         foreach ($image as $multi_img) {
@@ -129,7 +134,7 @@ class ProductController extends Controller
             $last_img = 'image/multi'.$name_gen;
             Images::create([
                 'image' => $last_img,
-                'product_id' => $product ->id,
+                'product_id' => $id,
                 'created_at' => Carbon::now()
             ]);
         }
@@ -146,10 +151,9 @@ class ProductController extends Controller
         if ($old_images){
             /* delete user-generated products */
             foreach ($old_images as $old_image) {
-                $image_path = $old_image -> image;
-                unlink($image_path);
+                File::delete($old_image);
             }
-            $old_images -> delete();
+            $old_images -> delete(); //delete from database
         }
         Products::find($id) -> delete();
 
