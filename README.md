@@ -1,3 +1,11 @@
+## Installation (using xampp)
+***Requirement*** Latest version of Composer. See https://getcomposer.org/download/ for instructions.
+- **Download the repository.**
+- **Create "praxxys_db" database in MySQL. **
+- **In VSCode terminal, migrate database by typing "php artisan migrate". **
+- **Seed users table and products table by typing "php artisan db:seed". **
+- **In command or vs code terminal, type "php artisan serve" to run the application. **
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
