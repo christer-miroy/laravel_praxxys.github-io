@@ -4,7 +4,7 @@
 - **Download the latest version of Composer. See https://getcomposer.org/download/ for the installation procedure. **
 - **Download the files in the repository. Extract the compressed folder. Copy (or cut) the extracted files and paste it in htdocs > (your new folder).**
 - **Create "praxxys_db" database in MySQL. **
-- **Open the project in VSCode.**
+- **Open the project in VSCode. **
 - **Create image folder inside public folder (should be: public > image) **
 - **Create multi folder inside image folder folder (should be: public > image > multi) **
 - **Open the terminal, migrate database by typing "php artisan migrate". **
