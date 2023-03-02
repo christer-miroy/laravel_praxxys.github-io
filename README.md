@@ -5,7 +5,7 @@
 - **Download the latest version of Composer. See https://getcomposer.org/download/ for the installation procedure. **
 - **Install the latest version of Laravel by typing composer create-project laravel/laravel praxxys_exam. **
 - **Download the files in this repository and extract the files while in Downloads folder. **
-- **Once extracted, copy the files inside praxxys_exam folder and paste it inside the newly created praxxys_exam in your htdocs folder.**
+- **Once extracted, copy the files inside praxxys_exam folder and paste it inside the newly created praxxys_exam in your htdocs folder. **
 - **Create "praxxys_db" database in MySQL. **
 - **Open the project in VSCode. **
 - **In .env file, go to DB_DATABASE and change the default setting to praxxys_db to connect to MySQL. **
