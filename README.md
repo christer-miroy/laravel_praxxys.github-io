@@ -17,6 +17,8 @@
 - **Press ctrl+click the indicated http server address. **
 - **For first-time users, select Register and fill-up the necessary fields. For returning users, select Log-in and enter your credentials. **
 
+- **Update 3/3/2023 - restricted file input type to accept only .jpeg, .jpg, and .png files only. This is done for personal reference only. **
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
