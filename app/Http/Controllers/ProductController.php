@@ -47,7 +47,7 @@ class ProductController extends Controller
             'name' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png', //only accept jpg, jpeg, and png files
+            'image' => 'required|mimes:jpg,jpeg,png', //only accept jpg, jpeg, and png files. updated for personal reference only.
             'datetime' => 'required'
         ]);
 
@@ -98,7 +98,7 @@ class ProductController extends Controller
             'name' => 'required',
             'category' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png', //only accept jpg, jpeg, and png files',
+            'image' => 'required|mimes:jpg,jpeg,png', //only accept jpg, jpeg, and png files. updated for personal reference only.
             'datetime' => 'required'
         ]);
 
